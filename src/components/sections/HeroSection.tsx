@@ -191,7 +191,7 @@ export default function HeroSection() {
             {/* Image box */}
             <div
               className="relative rounded-sm border border-[#00AEEF]/15 overflow-hidden bg-[#111318]"
-              style={{ height: "580px" }}>
+              style={{ height: "550px", width: "650px" }}>
               {/* Hero Image */}
               <Image
                 src="/contract_2.jpg"

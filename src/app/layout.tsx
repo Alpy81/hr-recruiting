@@ -55,7 +55,8 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={`${barlowCondensed.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}>
+      className={`${barlowCondensed.variable} ${dmSans.variable} ${jetbrainsMono.variable}`}
+      data-scroll-behavior="smooth">
       <body className="bg-[#0A0A0A] text-white font-body antialiased">
         <Navbar />
         <main className="min-h-screen">{children}</main>

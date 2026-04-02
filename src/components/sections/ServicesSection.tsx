@@ -181,7 +181,7 @@ export default function ServicesSection() {
             </span>
           </p>
           <Link
-            href="/leistungen"
+            href="/leistungen/executive-search"
             className="group inline-flex items-center gap-2 text-sm font-medium text-[#00AEEF] hover:text-white transition-colors duration-200">
             Alle Leistungen ansehen
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />

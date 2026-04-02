@@ -50,13 +50,13 @@ export default function Footer() {
             </div>
             <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
               <Link
-                href="/kontakt"
+                href="/#kontakt"
                 className="group relative overflow-hidden px-6 py-3.5 bg-[#00AEEF] text-[#0A0A0A] text-sm font-bold rounded-sm hover:shadow-[0_0_30px_rgba(0,174,239,0.5)] transition-all duration-300 text-center">
                 <span className="relative z-10">Jetzt Kontakt aufnehmen</span>
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
               </Link>
               <Link
-                href="/jobs"
+                href="/#jobs"
                 className="px-6 py-3.5 border border-[#00AEEF]/30 text-[#00AEEF] text-sm font-medium rounded-sm hover:bg-[#00AEEF]/8 transition-all duration-200 text-center">
                 Jobs entdecken
               </Link>

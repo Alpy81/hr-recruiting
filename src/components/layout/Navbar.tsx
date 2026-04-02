@@ -90,52 +90,37 @@ export default function Navbar() {
             {NAV_LINKS.map((link, i) =>
               link.label === "Leistungen" ? (
                 /* ── Leistungen Dropdown ── */
-                <li key={link.href} ref={dropRef} className="relative">
+                <li
+                  key={link.href}
+                  ref={dropRef}
+                  className="relative group/dropdown">
                   <button
-                    onMouseEnter={() => setLeistungOpen(true)}
-                    onMouseLeave={() => setLeistungOpen(false)}
-                    onClick={() => setLeistungOpen((v) => !v)}
                     className={cn(
                       "relative flex items-center gap-1 px-4 py-2 text-sm font-medium tracking-wide transition-colors duration-200 rounded-sm",
-                      leistungOpen
-                        ? "text-[#00AEEF]"
-                        : "text-[#8BA3B0] hover:text-white"
+                      "text-[#8BA3B0] hover:text-white group-hover/dropdown:text-[#00AEEF]"
                     )}>
-                    <span
-                      className={cn(
-                        "absolute inset-0 rounded-sm bg-[#00AEEF]/15 border border-[#00AEEF]/30 transition-opacity duration-200",
-                        leistungOpen ? "opacity-100" : "opacity-0"
-                      )}
-                    />
+                    <span className="absolute inset-0 rounded-sm bg-[#00AEEF]/15 border border-[#00AEEF]/30 opacity-0 group-hover/dropdown:opacity-100 transition-opacity duration-200" />
                     <span className="relative">Leistungen</span>
-                    <ChevronDown
-                      className={cn(
-                        "relative w-3.5 h-3.5 transition-transform duration-200",
-                        leistungOpen ? "rotate-180 text-[#00AEEF]" : ""
-                      )}
-                    />
+                    <ChevronDown className="relative w-3.5 h-3.5 transition-transform duration-200 group-hover/dropdown:rotate-180 group-hover/dropdown:text-[#00AEEF]" />
                   </button>
 
+                  {/* Invisible bridge to prevent gap */}
+                  <div className="absolute top-full left-0 w-60 h-3 bg-transparent" />
+
                   {/* Dropdown panel */}
-                  <div
-                    onMouseEnter={() => setLeistungOpen(true)}
-                    onMouseLeave={() => setLeistungOpen(false)}
-                    className={cn(
-                      "absolute top-full left-0 mt-2 w-60 bg-[#111318] border border-[#1A1E26] rounded-sm shadow-2xl shadow-black/60 z-50 overflow-hidden transition-all duration-200",
-                      leistungOpen
-                        ? "opacity-100 translate-y-0 pointer-events-auto"
-                        : "opacity-0 -translate-y-2 pointer-events-none"
-                    )}>
-                    <div className="h-px w-full bg-gradient-to-r from-[#00AEEF]/50 to-transparent" />
-                    {LEISTUNGEN.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="flex items-center gap-2 px-4 py-3 text-xs text-[#8BA3B0] hover:text-white hover:bg-[#00AEEF]/8 transition-all duration-200 group border-b border-[#1A1E26]/50 last:border-0">
-                        <span className="w-0 group-hover:w-2 h-px bg-[#00AEEF] transition-all duration-200 flex-shrink-0" />
-                        {item.label}
-                      </Link>
-                    ))}
+                  <div className="absolute top-[calc(100%+4px)] left-0 w-60 z-50 opacity-0 -translate-y-2 pointer-events-none group-hover/dropdown:opacity-100 group-hover/dropdown:translate-y-0 group-hover/dropdown:pointer-events-auto transition-all duration-200">
+                    <div className="bg-[#111318] border border-[#1A1E26] rounded-sm shadow-2xl shadow-black/60 overflow-hidden">
+                      <div className="h-px w-full bg-gradient-to-r from-[#00AEEF]/50 to-transparent" />
+                      {LEISTUNGEN.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="flex items-center gap-2 px-4 py-3 text-xs text-[#8BA3B0] hover:text-white hover:bg-[#00AEEF]/8 transition-all duration-200 group/item border-b border-[#1A1E26]/50 last:border-0">
+                          <span className="w-0 group-hover/item:w-2 h-px bg-[#00AEEF] transition-all duration-200 flex-shrink-0" />
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </li>
               ) : (

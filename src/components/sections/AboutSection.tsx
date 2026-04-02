@@ -70,7 +70,7 @@ export default function AboutSection() {
                 Gegründet
               </p>
               <p className="font-display font-bold text-3xl text-white leading-none">
-                2012
+                2026
               </p>
               <p className="text-xs text-[#8BA3B0] mt-1">Frankfurt am Main</p>
             </div>
