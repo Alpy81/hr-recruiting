@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Brand Tokens ─────────────────────────────── */
+:root {
+  --color-cyan:       #00AEEF;
+  --color-cyan-light: #33C3F0;
+  --color-cyan-dark:  #0090C8;
+  --color-black:      #0A0A0A;
+  --color-dark:       #111318;
+  --color-dark-2:     #1A1E26;
+  --color-muted:      #8BA3B0;
+  --color-white:      #FFFFFF;
+
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+}
+
+/* ─── Base Reset ────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* ─── Selection ─────────────────────────────────── */
+::selection {
+  background: rgba(0, 174, 239, 0.3);
+  color: var(--color-white);
+}
+
+/* ─── Scrollbar ─────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-cyan-dark);
+  border-radius: 3px;
+}
+
+/* ─── Focus Ring ─────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 3px;
+}
+
+/* ─── Utility Classes ────────────────────────────── */
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-cyan-light), var(--color-cyan-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 40px rgba(0, 174, 239, 0.3),
+                0 0 80px rgba(0, 174, 239, 0.1);
+  }
+
+  .glow-cyan-sm {
+    box-shadow: 0 0 20px rgba(0, 174, 239, 0.25);
+  }
+
+  .border-glow {
+    border: 1px solid rgba(0, 174, 239, 0.25);
+  }
+
+  .glass {
+    background: rgba(26, 30, 38, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 174, 239, 0.12);
+  }
+
+  .noise-bg {
+    position: relative;
+  }
+
+  .noise-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+}
