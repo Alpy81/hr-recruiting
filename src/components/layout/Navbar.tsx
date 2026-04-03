@@ -21,11 +21,9 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [leistungOpen, setLeistungOpen] = useState(false);
   const [mobileLeistungOpen, setMobileLeistungOpen] = useState(false);
   const pathname = usePathname();
   const menuRef = useRef<HTMLDivElement>(null);
-  const dropRef = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -35,15 +33,12 @@ export default function Navbar() {
 
   useEffect(() => {
     setMenuOpen(false);
-    setLeistungOpen(false);
   }, [pathname]);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(e.target as Node))
         setMenuOpen(false);
-      if (dropRef.current && !dropRef.current.contains(e.target as Node))
-        setLeistungOpen(false);
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
@@ -72,42 +67,30 @@ export default function Navbar() {
             : "bg-transparent py-5"
         )}>
         <nav className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 flex items-center justify-between">
-          {/* Logo */}
+          {/* ── Logo ── */}
           <Link href="/" className="relative z-10 flex-shrink-0 group">
             <Image
               src="/logo.png"
               alt="TalentForge HR"
               width={200}
               height={48}
-              className="h-9 sm:h-12 w-auto transition-all duration-300 group-hover:opacity-80"
+              className="h-9 sm:h-10 w-auto transition-all duration-300 group-hover:opacity-80"
               priority
               loading="eager"
             />
           </Link>
 
-          {/* Desktop Nav */}
-          <ul className="hidden x1:flex items-center gap-1">
+          {/* ── Desktop Nav — visible from 1024px ── */}
+          <ul className="hidden lg:flex items-center gap-1">
             {NAV_LINKS.map((link, i) =>
               link.label === "Leistungen" ? (
-                /* ── Leistungen Dropdown ── */
-                <li
-                  key={link.href}
-                  ref={dropRef}
-                  className="relative group/dropdown">
-                  <button
-                    className={cn(
-                      "relative flex items-center gap-1 px-4 py-2 text-sm font-medium tracking-wide transition-colors duration-200 rounded-sm",
-                      "text-[#8BA3B0] hover:text-white group-hover/dropdown:text-[#00AEEF]"
-                    )}>
+                <li key={link.href} className="relative group/dropdown">
+                  <button className="relative flex items-center gap-1 px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200 rounded-sm text-[#8BA3B0] hover:text-white group-hover/dropdown:text-[#00AEEF]">
                     <span className="absolute inset-0 rounded-sm bg-[#00AEEF]/15 border border-[#00AEEF]/30 opacity-0 group-hover/dropdown:opacity-100 transition-opacity duration-200" />
                     <span className="relative">Leistungen</span>
                     <ChevronDown className="relative w-3.5 h-3.5 transition-transform duration-200 group-hover/dropdown:rotate-180 group-hover/dropdown:text-[#00AEEF]" />
                   </button>
-
-                  {/* Invisible bridge to prevent gap */}
                   <div className="absolute top-full left-0 w-60 h-3 bg-transparent" />
-
-                  {/* Dropdown panel */}
                   <div className="absolute top-[calc(100%+4px)] left-0 w-60 z-50 opacity-0 -translate-y-2 pointer-events-none group-hover/dropdown:opacity-100 group-hover/dropdown:translate-y-0 group-hover/dropdown:pointer-events-auto transition-all duration-200">
                     <div className="bg-[#111318] border border-[#1A1E26] rounded-sm shadow-2xl shadow-black/60 overflow-hidden">
                       <div className="h-px w-full bg-gradient-to-r from-[#00AEEF]/50 to-transparent" />
@@ -124,14 +107,13 @@ export default function Navbar() {
                   </div>
                 </li>
               ) : (
-                /* ── Normal link ── */
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     onMouseEnter={() => setActiveIndex(i)}
                     onMouseLeave={() => setActiveIndex(null)}
                     className={cn(
-                      "relative px-4 py-2 text-sm font-medium tracking-wide transition-colors duration-200 rounded-sm",
+                      "relative px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200 rounded-sm",
                       isActive(link.href)
                         ? "text-[#00AEEF]"
                         : "text-[#8BA3B0] hover:text-white"
@@ -149,8 +131,8 @@ export default function Navbar() {
             )}
           </ul>
 
-          {/* Desktop CTA */}
-          <div className="hidden x1:flex items-center gap-3">
+          {/* ── Desktop CTA ── */}
+          <div className="hidden lg:flex items-center">
             <Link
               href="/termin"
               className={cn(
@@ -166,13 +148,13 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Burger */}
+          {/* ── Mobile Burger — hidden from 1024px ── */}
           <button
             onClick={() => setMenuOpen((v) => !v)}
             aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
             aria-expanded={menuOpen}
             className={cn(
-              "x1:hidden relative z-50 p-2 rounded-sm transition-colors duration-200",
+              "lg:hidden relative z-50 p-2 rounded-sm transition-colors duration-200",
               menuOpen ? "text-[#00AEEF]" : "text-[#8BA3B0] hover:text-white"
             )}>
             {menuOpen ? (
@@ -192,10 +174,10 @@ export default function Navbar() {
         />
       </header>
 
-      {/* Mobile Menu */}
+      {/* ── Mobile Drawer — hidden from 1024px ── */}
       <div
         className={cn(
-          "fixed inset-0 z-40 x1:hidden transition-all duration-400",
+          "fixed inset-0 z-40 lg:hidden transition-all duration-300",
           menuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -206,9 +188,10 @@ export default function Navbar() {
           className={cn(
             "absolute top-0 right-0 h-full w-[min(320px,85vw)]",
             "bg-[#111318] border-l border-[#00AEEF]/10 flex flex-col",
-            "transition-transform duration-400 ease-out",
+            "transition-transform duration-300 ease-out",
             menuOpen ? "translate-x-0" : "translate-x-full"
           )}>
+          {/* Drawer header */}
           <div className="flex items-center px-6 py-5 border-b border-[#1A1E26]">
             <Image
               src="/logo.png"
@@ -219,6 +202,7 @@ export default function Navbar() {
             />
           </div>
 
+          {/* Nav items */}
           <nav className="flex-1 overflow-y-auto px-4 py-6">
             <ul className="space-y-1">
               {NAV_LINKS.map((link, i) =>
@@ -279,6 +263,7 @@ export default function Navbar() {
             </ul>
           </nav>
 
+          {/* Drawer CTA */}
           <div className="px-6 py-6 border-t border-[#1A1E26] space-y-3">
             <Link
               href="/termin"
