@@ -62,7 +62,7 @@ export default function HeroSection() {
 
       {/* ── Main content ── */}
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 pt-28 pb-20 lg:pt-32 lg:pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 xl:grid-cols-[55%_45%] gap-8 xl:gap-12 items-center">
           {/* ── LEFT: Text + CTA ── */}
           <div
             className="flex flex-col"
@@ -191,13 +191,13 @@ export default function HeroSection() {
             {/* Image box */}
             <div
               className="relative rounded-sm border border-[#00AEEF]/15 overflow-hidden bg-[#111318]"
-              style={{ height: "550px", width: "650px" }}>
+              style={{ height: "min(650px, 40vh)" }}>
               {/* Hero Image */}
               <Image
                 src="/contract_2.jpg"
                 alt="TalentForge HR – Erfolgreiche Vermittlung"
                 fill
-                className="object-cover object-center"
+                className="object-cover object-top"
                 priority
               />
 

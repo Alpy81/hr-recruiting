@@ -228,12 +228,12 @@ export default function JobsSection() {
 
         {/* ── Bottom CTA ── */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-[#1A1E26]">
-          <p className="text-[#8BA3B0] text-sm">
-            Ihre Wunschposition nicht dabei?{" "}
-            <span className="text-white">
-              Wir besprechen Ihre Möglichkeiten persönlich.
-            </span>
-          </p>
+          <div className="flex flex-col gap-1.5">
+            <p className="text-[#8BA3B0] text-sm">Nicht das Richtige dabei?</p>
+            <p className="text-white text-sm">
+              Wir entwickeln individuelle Lösungen.
+            </p>
+          </div>
           <Link
             href="/#kontakt"
             className="group inline-flex items-center gap-2 text-sm font-medium text-[#00AEEF] hover:text-white transition-colors duration-200 whitespace-nowrap">

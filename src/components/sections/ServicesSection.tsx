@@ -174,12 +174,12 @@ export default function ServicesSection() {
 
         {/* ── Bottom CTA ── */}
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 pt-10 border-t border-[#1A1E26]">
-          <p className="text-[#8BA3B0] text-sm">
-            Nicht das Richtige dabei?{" "}
-            <span className="text-white">
+          <div className="flex flex-col gap-1.5">
+            <p className="text-[#8BA3B0] text-sm">Nicht das Richtige dabei?</p>
+            <p className="text-white text-sm">
               Wir entwickeln individuelle Lösungen.
-            </span>
-          </p>
+            </p>
+          </div>
           <Link
             href="/leistungen/executive-search"
             className="group inline-flex items-center gap-2 text-sm font-medium text-[#00AEEF] hover:text-white transition-colors duration-200">

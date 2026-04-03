@@ -79,14 +79,14 @@ export default function Navbar() {
               alt="TalentForge HR"
               width={200}
               height={48}
-              className="h-9 sm:h-10 w-auto transition-all duration-300 group-hover:opacity-80"
+              className="h-9 sm:h-12 w-auto transition-all duration-300 group-hover:opacity-80"
               priority
               loading="eager"
             />
           </Link>
 
           {/* Desktop Nav */}
-          <ul className="hidden lg:flex items-center gap-1">
+          <ul className="hidden x1:flex items-center gap-1">
             {NAV_LINKS.map((link, i) =>
               link.label === "Leistungen" ? (
                 /* ── Leistungen Dropdown ── */
@@ -150,7 +150,7 @@ export default function Navbar() {
           </ul>
 
           {/* Desktop CTA */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden x1:flex items-center gap-3">
             <Link
               href="/termin"
               className={cn(
@@ -172,7 +172,7 @@ export default function Navbar() {
             aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
             aria-expanded={menuOpen}
             className={cn(
-              "lg:hidden relative z-50 p-2 rounded-sm transition-colors duration-200",
+              "x1:hidden relative z-50 p-2 rounded-sm transition-colors duration-200",
               menuOpen ? "text-[#00AEEF]" : "text-[#8BA3B0] hover:text-white"
             )}>
             {menuOpen ? (
@@ -195,7 +195,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 z-40 lg:hidden transition-all duration-400",
+          "fixed inset-0 z-40 x1:hidden transition-all duration-400",
           menuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -241,6 +241,7 @@ export default function Navbar() {
                           <li key={item.href}>
                             <Link
                               href={item.href}
+                              onClick={() => setMenuOpen(false)}
                               className="flex items-center gap-2 px-4 py-2.5 rounded-sm text-sm text-[#8BA3B0] hover:text-[#00AEEF] hover:bg-[#00AEEF]/5 transition-all duration-200 group">
                               <ChevronRight className="w-3 h-3 text-[#00AEEF]/40 group-hover:text-[#00AEEF]" />
                               {item.label}
@@ -254,6 +255,7 @@ export default function Navbar() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
+                      onClick={() => setMenuOpen(false)}
                       className={cn(
                         "flex items-center justify-between px-4 py-3.5 rounded-sm text-base font-medium tracking-wide transition-all duration-200 border border-transparent",
                         isActive(link.href)
@@ -280,11 +282,13 @@ export default function Navbar() {
           <div className="px-6 py-6 border-t border-[#1A1E26] space-y-3">
             <Link
               href="/termin"
+              onClick={() => setMenuOpen(false)}
               className="flex items-center justify-center gap-2 w-full py-3.5 bg-[#00AEEF] text-[#0A0A0A] text-sm font-bold rounded-sm hover:shadow-[0_0_24px_rgba(0,174,239,0.4)] transition-all duration-300">
               Termin buchen <ChevronRight className="w-4 h-4" />
             </Link>
             <Link
               href="/#jobs"
+              onClick={() => setMenuOpen(false)}
               className="flex items-center justify-center w-full py-3 border border-[#00AEEF]/30 text-[#00AEEF] text-sm font-medium rounded-sm hover:bg-[#00AEEF]/8 transition-all duration-200">
               Alle Jobs ansehen
             </Link>
