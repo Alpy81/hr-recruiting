@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Barlow_Condensed, DM_Sans, JetBrains_Mono } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import CookieBanner from "@/components/ui/CookieBanner";
 import "@/styles/globals.css";
 
 const barlowCondensed = Barlow_Condensed({
@@ -61,6 +62,7 @@ export default function RootLayout({
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <CookieBanner />
       </body>
     </html>
   );
