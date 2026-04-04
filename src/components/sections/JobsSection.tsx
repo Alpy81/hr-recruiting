@@ -54,7 +54,7 @@ const JOBS = [
     location: "Berlin / Hybrid",
     type: "Executive Search",
     level: "Director",
-    salary: "80.000 – 90.000 €",
+    salary: "90.000 - 100.000 €",
     posted: "5 Tage",
     hot: false,
     tags: ["Sales", "SaaS", "DACH"],

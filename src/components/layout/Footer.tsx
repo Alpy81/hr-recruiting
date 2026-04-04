@@ -4,11 +4,11 @@ import { MapPin, Mail, Phone, Linkedin, ExternalLink } from "lucide-react";
 import { NAV_LINKS, CONTACT_INFO, SITE_TAGLINE } from "@/lib/constants";
 
 const FOOTER_SERVICES = [
-  { label: "Executive Search", href: "/leistungen" },
-  { label: "Direct Search", href: "/leistungen" },
-  { label: "Candidate Management", href: "/kandidaten" },
-  { label: "Employer Branding", href: "/arbeitgeber" },
-  { label: "HR Consulting", href: "/leistungen" },
+  { label: "Executive Search", href: "/leistungen/executive-search" },
+  { label: "Direct Search", href: "/leistungen/direct-search" },
+  { label: "Candidate Management", href: "/leistungen/candidate-management" },
+  { label: "Employer Branding", href: "/leistungen/employer-branding" },
+  { label: "HR Consulting", href: "/leistungen/hr-consulting" },
 ];
 
 const FOOTER_LEGAL = [

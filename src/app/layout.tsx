@@ -41,6 +41,9 @@ export const metadata: Metadata = {
     "Jobs",
     "Karriere",
   ],
+  icons: {
+    icon: "/favicon.ico",
+  },
   openGraph: {
     type: "website",
     locale: "de_DE",
