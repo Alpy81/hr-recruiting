@@ -154,7 +154,7 @@ RECRUITER_EMAIL=info@talentforge-hr.de
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open https://websylon-hr-recruiting-demo-website.netlify.app
 
 ### Production Build
 
