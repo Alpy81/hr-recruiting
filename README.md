@@ -190,7 +190,7 @@ data-url="https://calendly.com/your-username/30min?..."
 ## 🌐 Deployment (Vercel)
 
 1. Push to a **private** GitHub repository
-2. Connect the repository at [vercel.com](https://vercel.com)
+2. Connect the repository at http://app.netlify.com
 3. Add environment variables in Vercel dashboard:
    - `RESEND_API_KEY`
    - `RECRUITER_EMAIL`

@@ -191,19 +191,8 @@ export default function Navbar() {
             "transition-transform duration-300 ease-out",
             menuOpen ? "translate-x-0" : "translate-x-full"
           )}>
-          {/* Drawer header */}
-          <div className="flex items-center px-6 py-5 border-b border-[#1A1E26]">
-            <Image
-              src="/logo.png"
-              alt="TalentForge HR"
-              width={160}
-              height={38}
-              className="h-8 w-auto"
-            />
-          </div>
-
           {/* Nav items */}
-          <nav className="flex-1 overflow-y-auto px-4 py-6">
+          <nav className="flex-1 overflow-y-auto px-4 pt-20 pb-6">
             <ul className="space-y-1">
               {NAV_LINKS.map((link, i) =>
                 link.label === "Leistungen" ? (

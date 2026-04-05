@@ -139,7 +139,7 @@ export default function HeroSection() {
                 transition: "opacity 0.6s ease 0.55s",
               }}>
               <Link
-                href="/kontakt"
+                href="/#kontakt"
                 className="group relative overflow-hidden inline-flex items-center justify-center gap-2 px-7 py-4 bg-[#00AEEF] text-[#0A0A0A] text-sm font-bold rounded-sm hover:shadow-[0_0_32px_rgba(0,174,239,0.5)] transition-all duration-300">
                 <span className="relative z-10 flex items-center gap-2">
                   Jetzt Talent finden
@@ -148,7 +148,7 @@ export default function HeroSection() {
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
               </Link>
               <Link
-                href="/jobs"
+                href="/#jobs"
                 className="inline-flex items-center justify-center gap-2 px-7 py-4 border border-[#00AEEF]/30 text-[#00AEEF] text-sm font-medium rounded-sm hover:bg-[#00AEEF]/8 hover:border-[#00AEEF]/50 transition-all duration-200">
                 Jobs entdecken
               </Link>
